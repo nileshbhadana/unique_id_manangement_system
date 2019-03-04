@@ -192,7 +192,7 @@ while True:
     print("====================================================================================")
     print("                             UNIQUE ID MANAGEMENT                                   ")
     print("====================================================================================\n")
-    print("  Made by: NILESH BHADANA\t\t\tSubmitted To: Mr. Victor Mokoya\n           B.Tech. 4 Sem")
+    print("  Made by: NILESH BHADANA\n           SHOKAT SIDDIQUE\n           B.Tech. 4 Sem")
     print("------------------------------------------------------------------------------------\n\n")
     print("1. Insert New\n2. Edit Record\n3. Search Record\n4. Delete Record\n5. Show All Records\n6. Exit")
     main_choice=input("Enter Your Choice: ")
