@@ -7,7 +7,7 @@ Created on Mon Feb 11 01:36:59 2019
 """
 
 import mysql.connector,random,re,datetime,os,time
-
+from  prettytable import PrettyTable
 #creating database
 try:
     mydb=mysql.connector.connect(host="localhost",user="root",passwd="")
@@ -87,8 +87,11 @@ def search():
     sql = "SELECT * FROM test WHERE uid = "+"'"+str(adr)+"'"
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
+    x1=PrettyTable()
+    x1.field_names=['UID','First Name','Surname','Mobile','Email']
     for x in myresult:
-        print("\nUID: ",x[0],"\nName: ",x[1],x[2],"\nMobile Number: ",x[3],"\nEmail: ",x[4],"\n\n")
+        x1.add_row(x)
+        print(x1)
         input('\n\nPress Any Key to return to Main Menu..')
     if len(myresult)==0:
         print("NO RECORD FOUND...")
@@ -100,9 +103,11 @@ def showall():
     sql="SELECT * FROM test"
     mycursor.execute(sql)
     myresult=mycursor.fetchall()
-    print("UID\t\t\t   Name\t\t\tMobile\t\tEmail")
+    x1=PrettyTable()
+    x1.field_names=['UID','First Name','Surname','Mobile','Email']
     for x in myresult:
-        print(x[0],"\t",x[1],x[2],"\t",x[3],"\t",x[4])
+        x1.add_row(x)
+    print(x1)
     input('\n\nPress Any Key to return to Main Menu..')
 
 #deleting record
@@ -193,6 +198,7 @@ while True:
     print("                             UNIQUE ID MANAGEMENT                                   ")
     print("====================================================================================\n")
     print("  Made by: NILESH BHADANA\n           SHOKAT SIDDIQUE\n           B.Tech. 4 Sem")
+    print("  Made by: NILESH BHADANA\t\t\t\n           B.Tech. 4 Sem")
     print("------------------------------------------------------------------------------------\n\n")
     print("1. Insert New\n2. Edit Record\n3. Search Record\n4. Delete Record\n5. Show All Records\n6. Exit")
     main_choice=input("Enter Your Choice: ")
